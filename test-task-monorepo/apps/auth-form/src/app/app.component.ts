@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthComponent } from './auth/auth.component';
+import { ThemeTogglerComponent } from './theme-toggler/theme-toggler.component';
 
 @Component({
-  imports: [AuthComponent],
+  imports: [AuthComponent, ThemeTogglerComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
 })

@@ -1,0 +1,49 @@
+.theme-toggler {
+    --togglerHeight: 32px;
+    --togglerOutlineColor: transparent;
+    --thumbOffset: 4px;
+    --thumbSize: calc(var(--togglerHeight) - var(--thumbOffset) * 2);
+    --thumbLeft: calc(100% - var(--thumbSize) - var(--thumbOffset));
+    --backgroundColor: var(--color-accent);
+    --thumbBackgroundColor: var(--color-light);
+    --thumbBackgroundImage: url('../../icons/sun.svg');
+
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    padding: 0;
+    background-color: var(--backgroundColor);
+    border: none;
+    border-radius: 100px;
+    outline: var(--togglerOutlineColor) solid 2px;
+    outline-offset: -2px;
+
+    &.dark-enabled {
+        --togglerOutlineColor: var(--color-gray-alt);
+        --thumbLeft: var(--thumbOffset);
+        --backgroundColor: var(--color-gray-dark-alt);
+        --thumbBackgroundColor: var(--color-gray-alt);
+        --thumbBackgroundImage: url('../../icons/moon.svg');
+    }
+
+    & span {
+        display: block;
+    }
+
+    &__track {
+        position: relative;
+        width: 52px;
+        height: var(--togglerHeight);
+    }
+
+    &__thumb {
+        position: absolute;
+        top: var(--thumbOffset);
+        left: var(--thumbLeft);
+        height: var(--thumbSize);
+        aspect-ratio: 1;
+        background: var(--thumbBackgroundImage) var(--thumbBackgroundColor) center/cover no-repeat;
+        border-radius: 50%;
+        transition-duration: var(--transition-duration);
+    }
+}

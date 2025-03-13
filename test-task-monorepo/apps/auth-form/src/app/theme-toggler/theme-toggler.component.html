@@ -1,0 +1,12 @@
+<button
+    type="button"
+    class="theme-toggler"
+    [class.dark-enabled]="currentTheme === themes.dark"
+    (click)="toggleTheme()"
+    aria-label="Toggle theme"
+    title="Toggle theme"
+>
+    <span class="theme-toggler__track">
+        <span class="theme-toggler__thumb"></span>
+    </span>
+</button>

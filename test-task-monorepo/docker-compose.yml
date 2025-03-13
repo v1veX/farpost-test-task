@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  auth-form:
+    build:
+      context: .
+    ports:
+      - "4200:80"
+    container_name: auth-form-container
+    restart: unless-stopped

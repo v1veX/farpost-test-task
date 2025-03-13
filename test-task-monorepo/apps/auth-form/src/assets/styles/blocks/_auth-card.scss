@@ -1,0 +1,22 @@
+@use '../helpers' as *;
+
+.auth-card {
+    padding: 32px;
+    border: var(--border);
+    border-radius: 12px;
+
+    @include mobile-s {
+        border: none;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 16px;
+
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+    }
+}

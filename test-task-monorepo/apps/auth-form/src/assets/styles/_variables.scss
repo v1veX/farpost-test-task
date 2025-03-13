@@ -1,0 +1,49 @@
+:root {
+    --color-light: #FFFFFF;
+    --color-gray-light: #CAC4D0;
+    --color-gray: #79747E;
+    --color-gray-alt: #938F99;
+    --color-gray-dark: #49454F;
+    --color-gray-dark-alt: #36343B;
+    --color-red: #B3261E;
+    --color-red-light: #F2B8B5;
+    --color-purple-light: #D0BCFE;
+    --color-purple: #65558F;
+    --color-purple-dark: #381E72;
+    --color-text-light: #E6E0E9;
+    --color-text-dark: #1D1B20;
+    --color-background-light: #FEF7FF;
+    --color-background-dark: #141218;
+
+    --error-icon-light: url('../icons/error-light.svg');
+    --error-icon-dark: url('../icons/error-dark.svg');
+
+    // light theme
+    --color-background: var(--color-background-light);
+    --color-text: var(--color-text-dark);
+    --color-input-placeholder: var(--color-gray-dark);
+    --color-error: var(--color-red);
+    --color-accent: var(--color-purple);
+    --color-accent-text: var(--color-light);
+    --color-outline: var(--color-gray-light);
+    --color-outline-alt: var(--color-gray);
+    --error-icon: var(--error-icon-light);
+
+    --border: 1px solid var(--color-outline);
+    --border-alt: 1px solid var(--color-outline-alt);
+
+    --transition-duration: 0.15s;
+}
+
+:root.is-dark {
+    // dark theme
+    --color-background: var(--color-background-dark);
+    --color-text: var(--color-text-light);
+    --color-input-placeholder: var(--color-gray-light);
+    --color-error: var(--color-red-light);
+    --color-accent: var(--color-purple-light);
+    --color-accent-text: var(--color-purple-dark);
+    --color-outline: var(--color-gray-dark);
+    --color-outline-alt: var(--color-gray-alt);
+    --error-icon: var(--error-icon-dark);
+}

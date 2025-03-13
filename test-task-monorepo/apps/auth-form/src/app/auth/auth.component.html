@@ -1,0 +1,85 @@
+<section class="auth">
+    <div class="auth__inner">
+        <div class="auth-card">
+            <header class="auth-card__header">
+                <img
+                    src="images/seagul.png"
+                    alt=""
+                    class="auth-card__header-image"
+                    width="96" height="96"
+                />
+                <h2 class="auth-card__header-title">Sign In</h2>
+            </header>
+            <div class="auth-card__body">
+                <form
+                    class="auth-card__form auth-form"
+                    [formGroup]="authForm"
+                    (ngSubmit)="onSubmit()"
+                >
+                    <div class="auth-form__input-field input-field">
+                        <label for="email" class="visually-hidden">Email</label>
+                        <div class="input-field__wrapper">
+                            <input
+                                type="email"
+                                id="email"
+                                class="input-field__control"
+                                aria-errormessage="emailErrors"
+                                formControlName="email"
+                                required
+                                (focusin)="onEmailFocusIn()"
+                                (focusout)="onEmailFocusOut($event)"
+                            />
+                            <div
+                                class="input-field__visual-label"
+                                [class.shifted]="!authForm.controls.email.hasError('required') || inputFocuses.email"
+                                aria-hidden="true"
+                            >
+                                Email
+                            </div>
+                        </div>
+                        <p id="emailErrors" class="input-field__errors">
+                            {{ errorMessages.email }}
+                        </p>
+                    </div>
+                    <div class="auth-form__input-field input-field">
+                        <label for="password" class="visually-hidden">Password</label>
+                        <div class="input-field__wrapper">
+                            <input
+                                type="password"
+                                id="password"
+                                class="input-field__control"
+                                title="Password must have at least 6 characters, at least 1 capital letter, 1 digit and 1 special symbol (!, @, #, $, %, ^, & or *)"
+                                aria-errormessage="passwordErrors"
+                                formControlName="password"
+                                required
+                                (focusin)="onPasswordFocusIn()"
+                                (focusout)="onPasswordFocusOut($event)"
+                            />
+                            <div
+                                class="input-field__visual-label"
+                                [class.shifted]="!authForm.controls.password.hasError('required') || inputFocuses.password"
+                                aria-hidden="true"
+                            >
+                                Password
+                            </div>
+                        </div>
+                        <p id="passwordErrors" class="input-field__errors">
+                            {{ errorMessages.password }}
+                        </p>
+                    </div>
+                    <div class="auth-form__actions">
+                        <a href="/" class="auth-form__forgot-link link">Forgot password?</a>
+                        <button
+                            type="submit"
+                            class="auth-form__submit-button button"
+                            [disabled]="isSubmissionDisabled"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a href="/" class="auth__create-link link">Or create an account</a>
+    </div>
+</section>

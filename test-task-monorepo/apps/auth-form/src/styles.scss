@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@use './assets/styles/normalize';
+@use './assets/styles/fonts';
+@use './assets/styles/variables';
+@use './assets/styles/utils';
+@use './assets/styles/globals';
+
+@use './assets/styles/blocks/link';
+@use './assets/styles/blocks/button';
+@use './assets/styles/blocks/auth';
+@use './assets/styles/blocks/auth-card';
+@use './assets/styles/blocks/input-field';
+@use './assets/styles/blocks/auth-form';

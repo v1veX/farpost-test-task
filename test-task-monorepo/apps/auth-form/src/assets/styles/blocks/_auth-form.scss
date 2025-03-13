@@ -1,0 +1,10 @@
+.auth-form {
+    & > *:not(:last-child) {
+        margin-bottom: 12px;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+    }
+}

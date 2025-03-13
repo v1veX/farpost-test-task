@@ -1,0 +1,85 @@
+@use '../helpers/' as *;
+
+.input-field {
+    &__wrapper {
+        position: relative;
+
+        &::after {
+            @include abs-y;
+
+            content: '';
+            display: none;
+            right: 10px;
+            width: 24px;
+            height: 24px;
+            background: var(--error-icon) center/cover no-repeat;
+        }
+
+        &:has(.input-field__control.invalid) {
+            &::after {
+                display: block;
+            }
+        }
+    }
+
+    &__control {
+        --outlineColor: transparent;
+
+        width: 100%;
+        padding: 16px;
+        background-color: transparent;
+        border: var(--border-alt);
+        border-radius: 4px;
+        outline: var(--outlineColor) solid 3px;
+        outline-offset: -1px;
+        color: var(--color-text);
+        transition-duration: var(--transition-duration);
+
+        &:not(:last-child) {
+            margin-bottom: 4px;
+        }
+
+        &:focus-visible {
+            --outlineColor: var(--color-accent);
+
+            & + .input-field__visual-label {
+                color: var(--color-accent);
+            }
+        }
+
+        &.invalid {
+            --outlineColor: var(--color-error);
+
+            padding-right: 50px;
+
+            & + .input-field__visual-label {
+                color: var(--color-error);
+            }
+        }
+    }
+
+    &__visual-label {
+        @include abs-y;
+
+        left: 16px;
+        background-color: var(--color-background);
+        color: var(--color-input-placeholder);
+        transition-property: top, left, scale, padding, color;
+        transition-duration: var(--transition-duration);
+        pointer-events: none;
+
+        &.shifted {
+            top: 0;
+            left: 5px;
+            scale: 0.75;
+            padding-inline: 4px;
+        }
+    }
+
+    &__errors {
+        min-height: 16px;
+        padding-inline: 16px;
+        color: var(--color-error);
+        font-size: 12px;
+    }
+}

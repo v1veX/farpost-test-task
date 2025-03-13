@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { AuthComponent } from './auth/auth.component';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [AuthComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'auth-form';

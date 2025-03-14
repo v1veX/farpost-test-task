@@ -12,10 +12,15 @@ export class AuthComponent {
     minPasswordLength = 6;
 
     errorTexts = {
-        email: 'Invalid email',
+        emailPattern: 'Invalid email',
         passwordPattern: 'Password must contain lowercase letter, uppercase letter, digit and special symbol (!, @, #, $, %, ^, & or *)',
         passwordLength: `Password must have at least ${this.minPasswordLength} characters`,
         empty: 'Fill in this field',
+    }
+
+    validationRegExps = {
+        emailPattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        passwordPattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*]).+$/,
     }
 
     elementStateClasses = {
@@ -25,12 +30,12 @@ export class AuthComponent {
     authForm = new FormGroup({
         email: new FormControl('', [
             Validators.required,
-            Validators.email
+            patternMismatchValidator(this.validationRegExps.emailPattern),
         ]),
         password: new FormControl('', [
             Validators.required,
             Validators.minLength(this.minPasswordLength),
-            patternMismatchValidator(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*]).+$/),
+            patternMismatchValidator(this.validationRegExps.passwordPattern),
         ]),
     });
 
@@ -54,7 +59,7 @@ export class AuthComponent {
 
         inputElement.classList.toggle(this.elementStateClasses.invalid, isInvalid);
 
-        this.errorMessages.email = isEmpty ? this.errorTexts.empty : isInvalid ? this.errorTexts.email : '';
+        this.errorMessages.email = isEmpty ? this.errorTexts.empty : isInvalid ? this.errorTexts.emailPattern : '';
     }
 
     validatePasswordField(inputElement: any) {
